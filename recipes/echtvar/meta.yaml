@@ -1,5 +1,5 @@
 {% set name = "echtvar" %}
-{% set version = "0.2.2" %}
+{% set version = "0.2.4" %}
 
 package:
   name: {{ name }}
@@ -7,18 +7,19 @@ package:
 
 source:
   url: https://github.com/brentp/echtvar/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 6ca8070d6e5c13addc65064124c1a202321ce2a6779c462d5e849b8cc06abd7f
+  sha256: e4d04d16d9c8e02aa9c216d7c7173e4d35ed3a9f848d05e5908d60e74b5c128b
 
 build:
   number: 0
   run_exports:
-    - {{ pin_subpackage('echtvar', max_pin="x.x") }}
+    - {{ pin_subpackage(name, max_pin="x.x") }}
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('rust') }}
     - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
     - cargo-bundle-licenses
     - cmake
     - make

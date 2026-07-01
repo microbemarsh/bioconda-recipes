@@ -1,6 +1,6 @@
 {% set name = "galaxy-schema" %}
-{% set version = "25.1.2" %}
-{% set sha256 = "db70e8a01803035a09b8acc80f8472e7a261c05c5afd7c701ff1fa3aea84264b" %}
+{% set version = "26.0.1" %}
+{% set sha256 = "9861fb61b36b75228b599d6b63dcd2d1aa7eb91e5561d37a5b0cfbb3110de5a2" %}
 {% set galaxy_version = version.split(".")[:2]|join(".") %}
 
 package:
@@ -24,7 +24,7 @@ requirements:
     - pip
     - setuptools
   run:
-    - python {{ python_min }}
+    - python >={{ python_min }}
     - galaxy-util >={{ galaxy_version }}
     - galaxy-tool-util-models >={{ galaxy_version }}
     - pydantic >=2.7.4,<2.12
